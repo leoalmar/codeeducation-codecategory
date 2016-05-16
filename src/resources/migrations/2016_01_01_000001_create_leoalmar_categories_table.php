@@ -16,6 +16,7 @@ class CreateLeoalmarCategoriesTable
             $table->foreign('parent_id')->references('id')->on('leoalmar_categories');
 
             $table->string('name');
+            $table->string('slug');
             $table->boolean('active')->default(false);
             
             $table->timestamps();
