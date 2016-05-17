@@ -1,7 +1,7 @@
 <?php
 
-Route::group(['prefix'=>'categories','namespace'=>'Leoalmar\CodeCategory\Controllers'],function(){
+Route::group(['prefix'=>'admin/categories','namespace'=>'Leoalmar\CodeCategory\Controllers'],function(){
 
-    Route::get('test','AdminCategoriesController@index');
+    Route::get('/','AdminCategoriesController@index');
 
 });
