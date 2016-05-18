@@ -3,8 +3,10 @@
 namespace Leoalmar\CodeCategory\Tests\Models;
 
 
+use Illuminate\Validation\Validator;
 use Leoalmar\CodeCategory\Models\Category;
 use Leoalmar\CodeCategory\Tests\AbstractTestCase;
+use Mockery as M;
 
 class CategoryTest extends AbstractTestCase
 {
@@ -12,10 +14,19 @@ class CategoryTest extends AbstractTestCase
     public function setUp()
     {
         parent::setUp();
-        
         $this->migrate();
     }
 
+    public function test_inject_validator_in_category_model()
+    {
+        $category = new Category();
+        $validator = M::mock(Validator::class);
+
+        $category->setValidator($validator);
+
+
+        $this->assertEquals($category->getValidator(), $validator);
+    }
 
     public function test_check_if_a_category_can_be_persisted()
     {
