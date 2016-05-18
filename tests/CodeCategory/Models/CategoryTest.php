@@ -21,11 +21,24 @@ class CategoryTest extends AbstractTestCase
     {
         $category = new Category();
         $validator = M::mock(Validator::class);
+        $category->setValidator($validator);
+
+        $this->assertEquals($category->getValidator(), $validator);
+    }
+
+    public function test_should_check_if_is_valid_when_it_is()
+    {
+        $category = new Category();
+        $category->name = "Category Test";
+
+        $validator = M::mock(Validator::class);
+        $validator->shouldReceive('setRules')->with(['name'=>'required|max:255']);
+        $validator->shouldReceive('setData')->with(['name'=>'Category Test']);
+        $validator->shouldReceive('fails')->andReturn(false);
 
         $category->setValidator($validator);
 
-
-        $this->assertEquals($category->getValidator(), $validator);
+        $this->assertTrue( $category->isValid() );
     }
 
     public function test_check_if_a_category_can_be_persisted()
@@ -34,6 +47,7 @@ class CategoryTest extends AbstractTestCase
         $this->assertEquals('Category Test', $category->name);
 
         $category = Category::all()->first();
+
         $this->assertEquals('Category Test', $category->name);
     }
 
