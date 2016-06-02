@@ -33,7 +33,16 @@
                     <td>{{ $category->parent_id }}</td>
                     <td>{{ $category->name }}</td>
                     <td>{{ $category->active }}</td>
-                    <td></td>
+                    <td>
+                        <a class="btn btn-small btn-info" href="{{ route('admin.categories.edit', $category->id) }}"><i class="fa fa-fw fa-pencil"></i></a>
+
+                        {{ Form::open(['route' => ['admin.categories.delete', $category->id], 'method' => 'DELETE', 'style' => 'display: inline;']) }}
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fa fa-fw fa-trash"></i>
+                            </button>
+                        {{ Form::close() }}
+
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
