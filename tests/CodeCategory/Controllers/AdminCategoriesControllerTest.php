@@ -40,5 +40,5 @@ class AdminCategoriesControllerTest extends AbstractTestCase
 
         $this->assertEquals($controller->index(), $html);
     }
-    
+
 }

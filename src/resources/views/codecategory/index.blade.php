@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <h3>
-                    Create Category
+                    Categories
                     <div class="form-group pull-right">
                         <a href="{{ route('admin.categories.create') }}" class="btn btn-primary">Create Category</a>
                     </div>
