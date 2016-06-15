@@ -14,7 +14,8 @@
   ],
   "autoload": {
     "psr-4": {
-      "Leoalmar\\CodeCategory\\": "src/CodeCategory"
+      "Leoalmar\\CodeCategory\\": "src/CodeCategory/",
+      "Leoalmar\\CodeDatabase\\": "../codedatabase/src/CodeDatabase/"
     }
   },
   "require": {
