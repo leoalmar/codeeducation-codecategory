@@ -6,6 +6,7 @@ namespace Leoalmar\CodeCategory\Controllers;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
 use Leoalmar\CodeCategory\Models\Category;
+use Leoalmar\CodeCategory\Repository\CategoryRepository;
 use Leoalmar\CodeCategory\Tests\Models\CategoryTest;
 
 class AdminCategoriesController extends Controller
@@ -19,17 +20,17 @@ class AdminCategoriesController extends Controller
     /**
      * @var Category
      */
-    private $category;
+    private $repository;
 
     /**
      * AdminCategoriesController constructor.
      * @param ResponseFactory $response
-     * @param Category $category
+     * @param Category $repository
      */
-    public function __construct(ResponseFactory $response, Category $category)
+    public function __construct(ResponseFactory $response, CategoryRepository $repository)
     {
         $this->response = $response;
-        $this->category = $category;
+        $this->repository = $repository;
     }
 
     /**
@@ -37,7 +38,7 @@ class AdminCategoriesController extends Controller
      */
     public function index()
     {
-        $categories = $this->category->all();
+        $categories = $this->repository->all();
         return $this->response->view('codecategory::index', compact('categories'));
     }
 
@@ -46,7 +47,7 @@ class AdminCategoriesController extends Controller
      */
     public function create()
     {
-        $categories = $this->category->all()->lists('name','id')->toArray();
+        $categories = $this->repository->all()->lists('name','id')->toArray();
         return $this->response->view('codecategory::create', compact('categories'));
     }
 
@@ -56,7 +57,7 @@ class AdminCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $this->category->create($request->all());
+        $this->repository->create($request->all());
         return redirect()->route('admin.categories.index');
     }
 
@@ -67,8 +68,8 @@ class AdminCategoriesController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        $category = $this->category->find($id);
-        $categories = $this->category->all()->lists('name','id')->toArray();
+        $category = $this->repository->find($id);
+        $categories = $this->repository->all()->lists('name','id')->toArray();
 
         return $this->response->view('codecategory::edit', compact('category','categories'));
     }
@@ -81,7 +82,7 @@ class AdminCategoriesController extends Controller
     {
         $data = $request->all();
         $data['active'] = isset($data['active']);
-        $this->category->find($id)->update($data);
+        $this->repository->find($id)->update($data);
         return redirect()->route('admin.categories.index');
     }
 
@@ -92,7 +93,7 @@ class AdminCategoriesController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $this->category->destroy($id);
+        $this->repository->destroy($id);
         return redirect()->route('admin.categories.index');
     }
     
