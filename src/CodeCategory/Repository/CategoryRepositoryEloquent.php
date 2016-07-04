@@ -4,8 +4,9 @@ namespace Leoalmar\CodeCategory\Repository;
 
 use Leoalmar\CodeCategory\Models\Category;
 use Leoalmar\CodeDatabase\AbstractRepository;
+use Leoalmar\CodeDatabase\Contracts\CriteriaCollectionInterface;
 
-class CategoryRepository extends AbstractRepository
+class CategoryRepositoryEloquent extends AbstractRepository implements CategoryRepositoryInterface
 {
     public function model()
     {

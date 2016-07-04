@@ -7,6 +7,7 @@ use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
 use Leoalmar\CodeCategory\Models\Category;
 use Leoalmar\CodeCategory\Repository\CategoryRepository;
+use Leoalmar\CodeCategory\Repository\CategoryRepositoryInterface;
 use Leoalmar\CodeCategory\Tests\Models\CategoryTest;
 
 class AdminCategoriesController extends Controller
@@ -27,7 +28,7 @@ class AdminCategoriesController extends Controller
      * @param ResponseFactory $response
      * @param Category $repository
      */
-    public function __construct(ResponseFactory $response, CategoryRepository $repository)
+    public function __construct(ResponseFactory $response, CategoryRepositoryInterface $repository)
     {
         $this->response = $response;
         $this->repository = $repository;

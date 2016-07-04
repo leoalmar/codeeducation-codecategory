@@ -4,6 +4,8 @@ namespace Leoalmar\CodeCategory\Providers;
 
 
 use Illuminate\Support\ServiceProvider;
+use Leoalmar\CodeCategory\Repository\CategoryRepositoryEloquent;
+use Leoalmar\CodeCategory\Repository\CategoryRepositoryInterface;
 
 class CodeCategoryServiceProvider extends ServiceProvider
 {
@@ -17,6 +19,6 @@ class CodeCategoryServiceProvider extends ServiceProvider
 
     public function register()
     {
-        
+        $this->app->bind(CategoryRepositoryInterface::class,CategoryRepositoryEloquent::class);
     }
 }
