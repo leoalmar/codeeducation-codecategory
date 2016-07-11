@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7e508918dd7d7d0e70cbb6578794e52a",
-    "content-hash": "6ecd860fab8e5599046bbaec64ad2731",
+    "hash": "5470648152e669930ab4dfe5385b8a73",
+    "content-hash": "47c02a9fc35695d358e871417e0fd104",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -630,6 +630,55 @@
                 "storage"
             ],
             "time": "2016-04-28 06:53:12"
+        },
+        {
+            "name": "leoalmar/codeeducation-codedatabase",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leoalmar/codeeducation-codedatabase.git",
+                "reference": "e5e3cba942f1d189f0ce75f8dbfc70a3d140813f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leoalmar/codeeducation-codedatabase/zipball/e5e3cba942f1d189f0ce75f8dbfc70a3d140813f",
+                "reference": "e5e3cba942f1d189f0ce75f8dbfc70a3d140813f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "~5.2",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.2",
+                "orchestra/testbench": "^3.2",
+                "phpunit/phpunit": "^5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Leoalmar\\CodeDatabase\\": "src/CodeDatabase/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "leoalmar",
+                    "email": "leonardoxsystems@gmail.com",
+                    "homepage": "http://www.leoalmar.com",
+                    "role": "Software Engineer"
+                }
+            ],
+            "description": "Repository Pattern library based in Laravel",
+            "keywords": [
+                "criteria",
+                "laravel",
+                "repository"
+            ],
+            "time": "2016-07-04 17:31:35"
         },
         {
             "name": "monolog/monolog",
