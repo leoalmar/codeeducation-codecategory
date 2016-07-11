@@ -25,7 +25,7 @@
     "illuminate/database": "~5.2",
     "illuminate/validation": "~5.2",
     "cviebrock/eloquent-sluggable": "^3.0",
-    "leoalmar/codeeducation-codedatabase": "0.0.1"
+    "leoalmar/codeeducation-codedatabase": "^0.0.1"
   },
   "require-dev": {
     "phpunit/phpunit": "^5.3",
