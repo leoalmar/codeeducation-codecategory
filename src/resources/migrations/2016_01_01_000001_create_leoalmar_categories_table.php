@@ -11,9 +11,7 @@ class CreateLeoalmarCategoriesTable
     {
         Schema::create('leoalmar_categories', function(Blueprint $table){
             $table->increments('id');
-
-            $table->integer('parent_id')->nullable()->unsigned();
-            $table->foreign('parent_id')->references('id')->on('leoalmar_categories');
+            $table->integer('parent_id')->nullable();
 
             $table->string('name');
             $table->string('slug');
